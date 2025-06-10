@@ -1,0 +1,18 @@
+Enter the number of nodes: 4
+Enter the adjacency matrix
+0 1 0 0
+0 0 0 1
+0 0 0 0
+1 0 1 0
+
+The adjancency matrix is
+0 1 0 0 
+0 0 0 1 
+0 0 0 0 
+1 0 1 0 
+
+The transitive closure matrix is
+1 1 1 1 
+1 1 1 1 
+0 0 0 0 
+1 1 1 1

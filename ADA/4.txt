@@ -1,0 +1,27 @@
+Enter the number of vertices: 5
+Enter the cost matrix
+0       3       9999    7       9999
+3       0       4       2       9999
+9999    4       0       5       6
+7       2       5       0       4
+9999    9999    6       4       0
+
+The entered cost matrix is
+0       3       9999    7       9999
+3       0       4       2       9999
+9999    4       0       5       6
+7       2       5       0       4
+9999    9999    6       4       0
+Enter the source vertex: 1
+
+Shortest distance between 1 and 2 is 3
+Path: 2<->1
+
+Shortest distance between 1 and 3 is 7
+Path: 3<->2<->1
+
+Shortest distance between 1 and 4 is 5
+Path: 4<->2<->1
+
+Shortest distance between 1 and 5 is 9
+Path: 5<->4<->2<->1

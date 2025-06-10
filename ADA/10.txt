@@ -1,0 +1,7 @@
+Enter number of elements: 5
+Array before sorting:
+66 80 9 85 83 
+
+Array after sorting:
+9 66 80 83 85 
+Time taken for Quick Sort: 0.000006 seconds

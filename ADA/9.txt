@@ -1,0 +1,7 @@
+Enter the number of elements: 5
+Array before sorting
+94 41 9 95 15 
+
+Array after sorting
+9 15 41 94 95 
+Time taken for selection sort: 0.000004s

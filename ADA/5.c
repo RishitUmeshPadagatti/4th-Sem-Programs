@@ -1,68 +1,61 @@
-// Topological Sorting
-
 #include <stdio.h>
 #define MAX 100
+int main()
+{
+    int i, j;
+    int n, m;                // n = number of vertices, m = number of edges
+    int adj[MAX][MAX] = {0}; // Adjacency matrix
+    int indegree[MAX] = {0}; // Array to store in-degrees
+    int queue[MAX];
+    int front = 0, rear = -1;
 
-void print1dArray(int arr[MAX], int n){
-    for (int i=0; i<n; i++){
-        printf("%d ", arr[i]);
-    }
-}
-
-void print2dArray(int arr[MAX][MAX], int n){
-    for (int i=0; i<n; i++){
-        print1dArray(arr[i], n);
-        printf("\n");
-    }
-}
-
-int main() {
-    int n, m;
-
-    printf("Enter the number of verticies: ");
+    printf("Enter number of vertices: ");
     scanf("%d", &n);
-    printf("Enter the number of edges: ");
+    printf("Enter number of edges: ");
     scanf("%d", &m);
 
-    int adj[MAX][MAX] = {0};
-    int indegree[MAX] = {0};
-    int queue[MAX] = {0};
-    int front=0, rear=-1;
-
-    printf("Enter edges (start end)\n");
-    for (int i=0; i<m; i++){
+    printf("Enter edges (start end):\n");
+    for (i = 0; i < m; i++)
+    {
         int u, v;
         scanf("%d%d", &u, &v);
         adj[u][v] = 1;
         indegree[v]++;
     }
 
-    for (int i=0; i<n; i++){
+    for (i = 0; i < n; i++){
         if (indegree[i] == 0){
             rear++;
-            queue[rear] = indegree[i];
+            queue[rear] = i;
         }
     }
 
-    printf("Topological Sort\n");
+    printf("Topological Sort: ");
     int count = 0;
-
-    while(front<=rear){
+    while (front <= rear)
+    {
         int node = queue[front++];
         printf("%d ", node);
         count++;
 
-        for (int i=0; i<n; i++){
-            if (adj[node][i]){
-                indegree[i]--;
-
-                if (indegree[i] == 0){
+        for (j = 0; j < n; j++)
+        {
+            if (adj[node][j])
+            {
+                indegree[j]--;
+                if (indegree[j] == 0)
+                {
                     rear++;
-                    queue[front] = i;
+                    queue[rear] = j;
                 }
             }
         }
     }
 
-    return 0;
+    if (count != n)
+    {
+        printf("\nCycle detected! Topological sort not possible.\n");
+        printf("count: %d", count);
+        return 0;
+    }
 }

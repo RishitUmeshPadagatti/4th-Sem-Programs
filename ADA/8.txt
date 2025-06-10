@@ -1,0 +1,13 @@
+Enter the number of elements: 5
+Enter the elements
+1 2 3 4 5
+Enter the required sum: 5
+
+Solution 1
+1       4
+
+Solution 2
+2       3       5
+
+Solution 3
+5

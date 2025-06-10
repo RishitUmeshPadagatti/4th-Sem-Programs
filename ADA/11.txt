@@ -1,0 +1,7 @@
+Enter the value of n: 5
+Array before sorting
+83 11 91 25 61 
+
+Array after sorting
+11 25 61 83 91 
+Time taken for Merge Sort: 0.000009

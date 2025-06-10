@@ -1,48 +1,40 @@
-// All-Pairs Shortest Paths problem using Floyd's algorithm
+// 3a: Flyod Warshall
 
 #include <stdio.h>
-
 #define INF 999
 #define MAX 100
 
-int dist[MAX][MAX], path[MAX][MAX], n;
+int n, dist[MAX][MAX], path[MAX][MAX];
 
 void printPath(int src, int dest){
-    if (path[src][dest] == -1){
-        printf("No path exists\n");
-        return;
-    }
-
     int stk[MAX], top = -1;
-
     int curr = dest;
+
     while(curr != src){
         stk[++top] = curr;
         curr = path[src][curr];
     }
-
-    printf("%d", src);
-    while(top>=0){
+    printf("%d ", src);
+    while(top >= 0){
         printf(" -> %d", stk[top--]);
     }
+    printf("\n");
 }
 
 int main(){
     printf("Enter the number of nodes: ");
     scanf("%d", &n);
 
-    printf("\nEnter the adjacency matrix, input %d for infinity\n", INF);
-    for (int i=0; i<n; i++){
+    printf("Enter the adjacency matrix\n");
+    for(int i=0; i<n; i++){
         for (int j=0; j<n; j++){
             scanf("%d", &dist[i][j]);
-            if (dist[i][j] == INF)
-                path[i][j] = -1;
-            else
-                path[i][j] = i;
+            if (dist[i][j] == INF) path[i][j] = -1;
+            else path[i][j] = i;
         }
     }
 
-    // Floyd's algorithm
+    // Floyd's Algorithm
     for (int k=0; k<n; k++){
         for (int i=0; i<n; i++){
             for (int j=0; j<n; j++){
@@ -55,22 +47,18 @@ int main(){
     }
 
     printf("\nShortest Distance Matrix\n");
-    for (int i=0; i<n; i++){
+    for(int i=0; i<n; i++){
         for (int j=0; j<n; j++){
             printf("%d\t", dist[i][j]);
         }
         printf("\n");
     }
 
-    printf("\nShortest distance and paths between every pair of vertices\n");
+    printf("\nShortest distance and paths between every pair of vertices");
     for (int i=0; i<n; i++){
         for (int j=0; j<n; j++){
             if (i!=j){
-                printf("\n\nFrom %d to %d", i, j);
-                if (dist[i][j] == INF){
-                    printf("No path exists");
-                }
-
+                printf("\nFrom %d to %d", i, j);
                 printf("\n Distance: %d", dist[i][j]);
                 printf("\n Path: ");
                 printPath(i, j);

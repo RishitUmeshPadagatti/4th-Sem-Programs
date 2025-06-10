@@ -7,6 +7,8 @@
 #define INF 999999
 
 void merge(int A[], int low, int mid, int high){
+    printf("Low: %d, Mid: %d, High: %d\n", low, mid, high);
+
     int n1 = mid-low+1;
     int n2 = high-mid;
 
@@ -21,6 +23,7 @@ void merge(int A[], int low, int mid, int high){
     L[n1] = INF;
     R[n2] = INF;
 
+    
     int i=0, j=0;
     for (int k=low; k<=high; k++){
         if (L[i] <= R[j]){
@@ -34,6 +37,7 @@ void merge(int A[], int low, int mid, int high){
 }
 
 void merge_sort(int A[], int low, int high){
+    // printf("Low: %d, High: %d\n", low, high);
     if (low<high){
         int mid = (low+high)/2;
         merge_sort(A, low, mid);
